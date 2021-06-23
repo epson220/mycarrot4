@@ -2,7 +2,9 @@ package com.jojoldu.book.springboot.web;
 
 
 import com.jojoldu.book.springboot.service.PostsService;
+import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
 import com.jojoldu.book.springboot.web.dto.PostsSaveRequestDto;
+import com.jojoldu.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,4 +28,6 @@ public class PostsApiController {
     public PostsResponseDto findById (@PathVariable Long id) {
         return postsService.findById(id);
     }
+
+
 }
