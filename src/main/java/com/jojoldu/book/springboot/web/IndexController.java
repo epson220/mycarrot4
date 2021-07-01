@@ -17,8 +17,8 @@ public class IndexController {
     private final PostsService postsService;
 
     @GetMapping("/isLoggined")
-    public SessionUser isLoggined(@LoginUser SessionUser user) {
-        return user;
+    public String isLoggined(@LoginUser SessionUser user) {
+        return user.getName();
     }
 
 
