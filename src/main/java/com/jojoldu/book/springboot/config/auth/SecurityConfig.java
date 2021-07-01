@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().headers().frameOptions().disable().and()
                 .authorizeRequests().requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
-                .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/api/hello/**")
+                .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/api/hello/**", "/isLoggined")
                 .permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.USER.name()).anyRequest().authenticated()
                 .and().logout().logoutSuccessUrl("/")
