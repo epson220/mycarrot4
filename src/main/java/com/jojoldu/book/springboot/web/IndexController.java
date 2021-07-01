@@ -17,14 +17,8 @@ public class IndexController {
     private final PostsService postsService;
 
     @GetMapping("/isLoggined")
-    public Model isLoggined(Model model, @LoginUser SessionUser user) {
-
-        if(user != null) {
-            model.addAttribute("loginInfo", user);
-            return model;
-        }
-
-        return model;
+    public SessionUser isLoggined(@LoginUser SessionUser user) {
+        return user;
     }
 
 
