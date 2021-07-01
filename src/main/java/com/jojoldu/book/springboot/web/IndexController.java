@@ -5,18 +5,20 @@ import com.jojoldu.book.springboot.config.auth.dto.SessionUser;
 import com.jojoldu.book.springboot.service.PostsService;
 import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequiredArgsConstructor
-@RestController
+@Controller
 public class IndexController {
 
     private final PostsService postsService;
 
     @GetMapping("/isLoggined")
+    @ResponseBody
     public String isLoggined(@LoginUser SessionUser user) {
         return user.getName();
     }
