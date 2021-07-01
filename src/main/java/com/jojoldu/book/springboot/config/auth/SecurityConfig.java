@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().headers().frameOptions().disable().and()
+        http.cors().and().csrf().disable().headers().frameOptions().disable().and()
                 .authorizeRequests().requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/api/hello/**")
                 .permitAll()
@@ -27,7 +27,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().logout().logoutSuccessUrl("/")
                 .and().oauth2Login().userInfoEndpoint().userService(customOAuth2UserService);
     }
-
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
