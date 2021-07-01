@@ -19,10 +19,14 @@ public class IndexController {
 
     @GetMapping("/isLoggined")
     @ResponseBody
-    public String isLoggined(@LoginUser SessionUser user) {
+    public SessionUser isLoggined(@LoginUser SessionUser user) {
         System.out.println("================================================");
-        System.out.println(user.getName());
-        return user.getName();
+        if(user != null) {
+            System.out.println(user.getName());
+            return user;
+        }else {
+            return user;
+        }
     }
 
 
