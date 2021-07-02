@@ -16,17 +16,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
 
     private final PostsService postsService;
+    private String email;
 
     @GetMapping("/isLoggined")
     @ResponseBody
     public String isLoggined(@LoginUser SessionUser user) {
+
+        email = user.getEmail();
+
         System.out.println("================================================");
         if(user != null) {
             System.out.println(user);
             System.out.println(user.getName());
-            return "asdfsadfadf";
+            System.out.println(user.getEmail());
+            return email;
         }else {
-            return "asdfasdffdds";
+            return email;
         }
     }
 
