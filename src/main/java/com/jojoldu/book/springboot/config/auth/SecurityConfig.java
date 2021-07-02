@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.USER.name()).anyRequest().authenticated()
                 .and().logout().logoutSuccessUrl("/")
-                .and().oauth2Login().userInfoEndpoint().userService(customOAuth2UserService);
+                .and().oauth2Login().userInfoEndpoint().userService(customOAuth2UserService).and().defaultSuccessUrl("http://localhost:3000/");
     }
 
     @Bean
