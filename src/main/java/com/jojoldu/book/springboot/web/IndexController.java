@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
@@ -20,7 +22,9 @@ public class IndexController {
 
     @GetMapping("/isLoggined")
     @ResponseBody
-    public String isLoggined(@LoginUser SessionUser user) {
+    public HashMap isLoggined(@LoginUser SessionUser user) {
+
+        HashMap result = new HashMap();
 
         System.out.println("================================================");
         if(user != null) {
@@ -28,10 +32,11 @@ public class IndexController {
             System.out.println(user.getName());
             System.out.println(user.getEmail());
             email = user.getEmail();
+            result.put("email", email);
 
-            return email;
+            return result;
         }else {
-            return email;
+            return result;
         }
     }
 
