@@ -22,7 +22,7 @@ public class IndexController {
 
     @GetMapping("/isLoggined")
     @ResponseBody
-    public HashMap isLoggined(@LoginUser SessionUser user) {
+    public String isLoggined(@LoginUser SessionUser user) {
 
         HashMap result = new HashMap();
 
@@ -34,9 +34,9 @@ public class IndexController {
             email = user.getEmail();
             result.put("email", email);
 
-            return result;
+            return email;
         }else {
-            return result;
+            return email;
         }
     }
 
