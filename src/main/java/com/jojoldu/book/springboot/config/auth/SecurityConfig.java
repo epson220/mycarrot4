@@ -24,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/api/hello/**", "/isLoggined")
                 .permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.USER.name()).anyRequest().authenticated()
-                .and().logout().logoutSuccessUrl("/")
+                .and().logout().logoutSuccessUrl("http://localhost:3000/")
                 .and().oauth2Login().userInfoEndpoint().userService(customOAuth2UserService).and().defaultSuccessUrl("http://localhost:3000/");
     }
 
