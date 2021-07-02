@@ -30,6 +30,11 @@ public class IndexController {
         }
     }
 
+    @GetMapping("/login/oauth2/code/google")
+    public String index2(){
+        return "test";
+    }
+
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
