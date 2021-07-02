@@ -22,6 +22,7 @@ public class IndexController {
     public SessionUser isLoggined(@LoginUser SessionUser user) {
         System.out.println("================================================");
         if(user != null) {
+            System.out.println(user);
             System.out.println(user.getName());
             return user;
         }else {
@@ -34,8 +35,10 @@ public class IndexController {
     public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
-
         if(user != null) {
+            System.out.println("test user");
+            System.out.println(user);
+            System.out.println(user.getName());
             model.addAttribute("googleName", user.getName());
         }
 
