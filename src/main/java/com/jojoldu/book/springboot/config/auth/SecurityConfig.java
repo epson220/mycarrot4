@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/api/hello/**", "/isLoggined")
                 .permitAll()
-                .antMatchers("/api/v1/**").hasRole(Role.USER.name()).anyRequest().authenticated()
+                .antMatchers("/api/v1/**", "/isLoggined").hasRole(Role.USER.name()).anyRequest().authenticated()
                 .and().logout().logoutSuccessUrl("http://localhost:3000/")
                 .and().oauth2Login().userInfoEndpoint().userService(customOAuth2UserService).and().defaultSuccessUrl("http://localhost:3000/");
     }

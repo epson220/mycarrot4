@@ -26,7 +26,7 @@ public class IndexController {
         HashMap result = new HashMap();
         String email ="";
 
-        System.out.println("================================================");
+        System.out.println("==============================isLoggined호출=============");
         if(user != null) {
             System.out.println(user);
             System.out.println(user.getName());
