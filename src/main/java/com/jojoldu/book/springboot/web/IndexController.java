@@ -36,6 +36,7 @@ public class IndexController {
 
             return email;
         }else {
+            System.out.println("유저가 null입니다!!!!!!!!!!!!!!");
             return email;
         }
     }
