@@ -42,6 +42,7 @@ public class IndexController {
     }
 
     @GetMapping("/")
+    @ResponseBody
     public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
@@ -50,9 +51,10 @@ public class IndexController {
             System.out.println(user);
             System.out.println(user.getName());
             model.addAttribute("googleName", user.getName());
+            return user.getName();
         }
 
-        return "index";
+        return "user는 null이야";
     }
 
     @GetMapping("/posts/save")
