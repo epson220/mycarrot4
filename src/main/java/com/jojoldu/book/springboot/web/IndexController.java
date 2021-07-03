@@ -18,13 +18,13 @@ import java.util.HashMap;
 public class IndexController {
 
     private final PostsService postsService;
-    private String email ="";
 
     @GetMapping("/isLoggined")
     @ResponseBody
     public String isLoggined(@LoginUser SessionUser user) {
 
         HashMap result = new HashMap();
+        String email ="";
 
         System.out.println("================================================");
         if(user != null) {
