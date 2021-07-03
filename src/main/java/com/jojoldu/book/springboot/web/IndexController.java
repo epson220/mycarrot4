@@ -11,35 +11,33 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
 
-    @GetMapping("/isLoggined")
-    @ResponseBody
-    public String isLoggined(@LoginUser SessionUser user) {
-
-        HashMap result = new HashMap();
-        String email ="";
-
-        System.out.println("==============================isLoggined호출=============");
-        if(user != null) {
-            System.out.println(user);
-            System.out.println(user.getName());
-            System.out.println(user.getEmail());
-            email = user.getEmail();
-            result.put("email", email);
-
-            return email;
-        }else {
-            System.out.println("유저가 null입니다!!!!!!!!!!!!!!");
-            return email;
-        }
-    }
+//    @GetMapping("/isLoggined")
+//    @ResponseBody
+//    public String isLoggined(@LoginUser SessionUser user) {
+//
+//        HashMap result = new HashMap();
+//        String email ="";
+//
+//        System.out.println("==============================isLoggined호출=============");
+//        if(user != null) {
+//            System.out.println(user);
+//            System.out.println(user.getName());
+//            System.out.println(user.getEmail());
+//            email = user.getEmail();
+//            result.put("email", email);
+//
+//            return email;
+//        }else {
+//            System.out.println("유저가 null입니다!!!!!!!!!!!!!!");
+//            return email;
+//        }
+//    }
 
     @GetMapping("/")
     @ResponseBody
